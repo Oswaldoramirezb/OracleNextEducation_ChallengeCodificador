@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<script>
+  function encriptaT() {
+    var texto = document.getElementById("text-input").value;
+    var textoencrip = encriptar(texto);
+    document.getElementById("text-below-buttons").innerText = textoencrip;
+  }
+
+  function desencriptaT() {
+    var texto = document.getElementById("text-input").value;
+    var textoDesencrip = desencriptar(texto);
+    document.getElementById("text-below-buttons").innerText = textoDesencrip;
+  }
+
+  function encriptar(texto) {
+    var encrip = texto;
+    encrip = encrip.replace(/e/g, "enter");
+    encrip = encrip.replace(/i/g, "imes");
+    encrip = encrip.replace(/a/g, "ai");
+    encrip = encrip.replace(/o/g, "ober");
+    encrip = encrip.replace(/u/g, "ufat");
+    return encrip;
+  }
+
+  function desencriptar(texto) {
+    var desencrip = texto;
+    desencrip = desencrip.replace(/enter/g, "e");
+    desencrip = desencrip.replace(/imes/g, "i");
+    desencrip = desencrip.replace(/ai/g, "a");
+    desencrip = desencrip.replace(/ober/g, "o");
+    desencrip = desencrip.replace(/ufat/g, "u");
+    return desencrip;
+  }
+
+  function copiarTexto() {
+    var textoGenerado = document.getElementById("text-below-buttons");
+    var textoCopia = document.createElement("textarea");
+    textoCopia.value = textoGenerado.innerText;
+    document.body.appendChild(textoCopia);
+    textoCopia.select();
+    document.execCommand("copy");
+    document.body.removeChild(textoCopia);
+    alert("Texto copiado: " + textoGenerado.innerText);
+  }
+</script>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Encriptador</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="image-container">
+      <img src="logo.png" alt="Logo de alura latam">
+    </div>
+    <h1 class="title"> Encriptador </h1>
+    <textarea id="text-input" placeholder="Ingrese el texto aquí."></textarea>
+    <div id="buttons">
+      <button class="button" onclick="encriptaT()">Encriptar</button>
+      <button class="button" onclick="desencriptaT()">Desencriptar</button>
+    </div>
+    <div id="text-below-buttons">
+      Texto encriptado o desencriptado se mostrará aquí.
+    </div>
+    <button class="button" onclick="copiarTexto()">Copiar</button>
+  </div>
+</body>
+</html>
+
+
+
