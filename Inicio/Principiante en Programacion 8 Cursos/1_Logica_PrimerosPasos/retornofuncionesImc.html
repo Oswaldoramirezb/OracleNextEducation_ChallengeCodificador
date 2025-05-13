@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+
+<H1>PROGRAMA IMC</H1>
+
+<script> 
+
+    function saltarLinea() {
+        document.write("<br>")
+    }
+
+    function imprimir(frase){
+        document.write(frase)
+        saltarLinea()
+    }
+
+    function calcularImc(peso,altura){
+         
+       return peso / (altura*altura);
+    }
+
+   
+   imprimir("El promedio del imc calculado de Oswaldo y Cinthya es: " + (calcularImc(95,1.74)+calcularImc(56,1.70))/2);
+   imprimir("El promedio del imc calculado de Gabriela y Luisa es: " + (calcularImc(56,1.54)+calcularImc(76,1.90))/2);
+
+</script>

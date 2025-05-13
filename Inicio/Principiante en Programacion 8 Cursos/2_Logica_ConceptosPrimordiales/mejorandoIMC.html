@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+
+<H1>PROGRAMA IMC</H1>
+
+<script> 
+
+    function saltarLinea() {
+        document.write("<br>")
+    }
+
+    function imprimir(frase){
+        document.write(frase)
+        saltarLinea()
+    }
+
+    function calcularImc(peso,altura){
+         
+       return peso / (altura*altura);
+    }
+    nombre= prompt("Informe su nombre")
+    pesoInformado= prompt("Informe su peso: ")
+    alturaInformada = prompt("Informe su altura: ")
+
+    imcCalculado = calcularImc(pesoInformado,alturaInformada)
+   
+   imprimir(nombre + ", su imc calculado es: " +imcCalculado);
+
+   if (imcCalculado < 18.5){
+            imprimir("El IMC abajo de lo recomendado");
+   }
+   if (imcCalculado >18.5 && imcCalculado<=24.9){
+            imprimir("El IMC esta perfecto");
+   }
+   if (imcCalculado >24.9 && imcCalculado<30){
+            imprimir("El IMC indica PreObesidad");
+   }
+   if (imcCalculado >= 30){
+            imprimir("IMC considerado como Mucha obesidad");
+   }
+      
+  
+</script>

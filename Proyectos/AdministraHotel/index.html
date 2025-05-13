@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdministraHotel - Sistema de Gestión</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-hotel"></i>
+                <span>AdministraHotel</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-section="reservations">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Reservaciones</span>
+                </li>
+                <li data-section="rooms">
+                    <i class="fas fa-bed"></i>
+                    <span>Habitaciones</span>
+                </li>
+                <li data-section="guests">
+                    <i class="fas fa-users"></i>
+                    <span>Huéspedes</span>
+                </li>
+                <li data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reportes</span>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="user-info">
+                    <i class="fas fa-bell"></i>
+                    <div class="user-profile">
+                        <img src="assets/img/default-avatar.png" alt="Usuario">
+                        <span>Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-section" id="dashboard">
+                <h1>Dashboard</h1>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <i class="fas fa-bed"></i>
+                        <div class="stat-info">
+                            <h3>Habitaciones Ocupadas</h3>
+                            <p class="stat-number">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Huéspedes Activos</h3>
+                            <p class="stat-number">24</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <div class="stat-info">
+                            <h3>Reservaciones Hoy</h3>
+                            <p class="stat-number">5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section" id="reservations" style="display: none;">
+                <h1>Reservaciones</h1>
+                <div class="action-bar">
+                    <button class="btn primary" id="newReservation">
+                        <i class="fas fa-plus"></i> Nueva Reservación
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="reservationsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Huésped</th>
+                                <th>Habitación</th>
+                                <th>Fecha Entrada</th>
+                                <th>Fecha Salida</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-section" id="rooms" style="display: none;">
+                <h1>Habitaciones</h1>
+                <div class="action-bar">
+                    <button class="btn primary" id="newRoom">
+                        <i class="fas fa-plus"></i> Nueva Habitación
+                    </button>
+                </div>
+                <div class="rooms-grid">
+                    <!-- Las habitaciones se cargarán dinámicamente -->
+                </div>
+            </div>
+
+            <div class="content-section" id="guests" style="display: none;">
+                <h1>Huéspedes</h1>
+                <div class="action-bar">
+                    <button class="btn primary" id="newGuest">
+                        <i class="fas fa-plus"></i> Nuevo Huésped
+                    </button>
+                </div>
+                <div class="table-container">
+                    <table id="guestsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos se cargarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-section" id="reports" style="display: none;">
+                <h1>Reportes</h1>
+                <div class="reports-container">
+                    <div class="report-card">
+                        <h3>Ocupación Mensual</h3>
+                        <canvas id="occupancyChart"></canvas>
+                    </div>
+                    <div class="report-card">
+                        <h3>Ingresos</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
